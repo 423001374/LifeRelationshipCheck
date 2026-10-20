@@ -56,7 +56,7 @@ const UI = {
   }
 };
 
-// DATASET (20 Questions per Category)
+// 20 Questions per Category
 const DATA = {
   tl: {
     relationship: {
@@ -239,7 +239,7 @@ const DOM = {
   solutionsList: document.getElementById("solutionsList")
 };
 
-// Initialize Application Settings
+// Application Settings
 function initSettings() {
   if (isDarkMode) document.body.classList.add("dark-mode");
   if (isLargeFont) document.body.classList.add("large-font");
@@ -279,7 +279,7 @@ function setLanguage(lang) {
   renderCategoryGrid();
 }
 
-// Render Categories
+// Categories
 function renderCategoryGrid() {
   DOM.categoryGrid.innerHTML = "";
   const categories = DATA[currentLang];
@@ -312,7 +312,7 @@ function startQuiz(catKey) {
   renderStep();
 }
 
-// Render Questions (Part 1 MCQ, Part 2 T/F, Part 3/4 Open Text)
+// Render Questions
 function renderStep() {
   const catData = DATA[currentLang][selectedCatKey];
   const ui = UI[currentLang];
@@ -326,7 +326,7 @@ function renderStep() {
 
   DOM.optionsContainer.innerHTML = "";
 
-  // Part 1: Multiple Choice (0-9)
+  // Multiple Choice
   if (currentStep < 10) {
     const qData = catData.mcq[currentStep];
     DOM.questionText.textContent = qData.q;
@@ -338,7 +338,7 @@ function renderStep() {
       DOM.optionsContainer.appendChild(btn);
     });
   }
-  // Part 2: True or False (10-14)
+  // True or False 
   else if (currentStep < 15) {
     const qData = catData.tf[currentStep - 10];
     DOM.questionText.textContent = qData.q;
@@ -356,7 +356,7 @@ function renderStep() {
     DOM.optionsContainer.appendChild(tBtn);
     DOM.optionsContainer.appendChild(fBtn);
   }
-  // Part 3 & 4: Open Reflections & Paragraph (15-19)
+  // Open Reflections & Paragraph
   else {
     const qData = catData.reflections[currentStep - 15];
     DOM.questionText.textContent = qData.q;
@@ -420,7 +420,7 @@ function showResults() {
     May kabuuang score ka na <b>${avgScore}%</b> sa kategoryang <b>${catData.title}</b>.
   `;
 
-  // Render Reflections List
+  // Reflections List
   DOM.reflectionList.innerHTML = "";
   Object.keys(userTextAnswers).forEach(id => {
     const p = document.createElement("p");
@@ -428,7 +428,7 @@ function showResults() {
     DOM.reflectionList.appendChild(p);
   });
 
-  // Render 7-Day Plan Tips
+  // 7-Day Plan Tips
   DOM.solutionsList.innerHTML = "";
   catData.tips.forEach(tip => {
     const li = document.createElement("li");
@@ -439,7 +439,7 @@ function showResults() {
   saveHistory(catData.title, avgScore, ui.labels[key]);
 }
 
-// History LocalStorage Logic
+// History
 function saveHistory(catTitle, score, label) {
   let history = JSON.parse(localStorage.getItem("app_history") || "[]");
   const date = new Date().toLocaleDateString();
@@ -484,5 +484,4 @@ document.getElementById("changeCatBtn").onclick = () => {
   DOM.categoryScreen.classList.remove("hidden");
 };
 
-// Run Initialization
 initSettings();
