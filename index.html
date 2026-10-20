@@ -12,7 +12,6 @@
 <body>
   <main class="app-container">
 
-    <!-- TOP CONTROL BAR (Language, Theme, Font Settings) -->
     <header class="top-bar">
       <div class="logo">✨ SelfReflect</div>
       <div class="controls">
@@ -28,7 +27,7 @@
       </div>
     </header>
 
-    <!-- STEP 1: CATEGORY SELECTION -->
+    <!-- CATEGORY -->
     <section id="category-screen" class="card active">
       <header class="header">
         <span class="badge" data-i18n="badgeSelf">Self-Assessment System</span>
@@ -37,7 +36,7 @@
       </header>
 
       <div class="category-grid" id="categoryGrid">
-        <!-- Dynamically rendered via JS -->
+       
       </div>
 
       <!-- History Widget -->
@@ -48,7 +47,7 @@
       </div>
     </section>
 
-    <!-- STEP 2: QUIZ & REFLECTION SCREEN -->
+    <!-- QUIZ & REFLECTION SCREEN -->
     <section id="quiz-screen" class="card hidden">
       <div class="quiz-topbar">
         <button id="backBtn" class="btn-icon" aria-label="Bumalik">
@@ -65,14 +64,14 @@
         <div class="progress-bar"><div id="progressFill"></div></div>
       </div>
 
-      <!-- Dynamic Question Container -->
+      <!-- Question Container -->
       <div id="questionContainer">
         <h2 id="questionText" class="question-text">Loading question...</h2>
         <div id="optionsContainer" class="options-grid"></div>
       </div>
     </section>
 
-    <!-- STEP 3: RESULTS & REFLECTION SUMMARY -->
+    <!-- RESULTS & REFLECTION SUMMARY -->
     <section id="result-screen" class="card hidden">
       <div class="result-header">
         <span class="badge" data-i18n="badgeResult">Resulta ng Pagsusuri</span>
