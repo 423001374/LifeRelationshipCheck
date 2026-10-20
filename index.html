@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life & Self-Reflection System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-container">
+
+    <!-- TOP CONTROL BAR (Language, Theme, Font Settings) -->
+    <header class="top-bar">
+      <div class="logo">✨ SelfReflect</div>
+      <div class="controls">
+        <button id="themeToggleBtn" class="btn-sm" aria-label="Toggle Theme">🌙</button>
+        <button id="fontToggleBtn" class="btn-sm" title="Adjust Font Size">A<sup>+</sup></button>
+        <div class="lang-selector">
+          <label for="langSelect">🌐</label>
+          <select id="langSelect">
+            <option value="tl">Tagalog</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- STEP 1: CATEGORY SELECTION -->
+    <section id="category-screen" class="card active">
+      <header class="header">
+        <span class="badge" data-i18n="badgeSelf">Self-Assessment System</span>
+        <h1 data-i18n="catHeader">Ano ang gusto mong suriin ngayon?</h1>
+        <p class="subtitle" data-i18n="catSub">Pumili ng kategorya para malaman ang kalagayan ng iyong emosyon, relasyon, at personal na buhay.</p>
+      </header>
+
+      <div class="category-grid" id="categoryGrid">
+        <!-- Dynamically rendered via JS -->
+      </div>
+
+      <!-- History Widget -->
+      <div id="historyBox" class="history-box hidden">
+        <h3 data-i18n="historyTitle">📜 Nakaraang Assessment History</h3>
+        <ul id="historyList" class="history-list"></ul>
+        <button id="clearHistoryBtn" class="btn-text" data-i18n="btnClearHistory">Burahin ang History</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: QUIZ & REFLECTION SCREEN -->
+    <section id="quiz-screen" class="card hidden">
+      <div class="quiz-topbar">
+        <button id="backBtn" class="btn-icon" aria-label="Bumalik">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <span id="categoryTitleTag" class="cat-tag">Category</span>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-info">
+          <span id="questionCount">Tanong 1 ng 20</span>
+          <span id="progressPercent">5%</span>
+        </div>
+        <div class="progress-bar"><div id="progressFill"></div></div>
+      </div>
+
+      <!-- Dynamic Question Container -->
+      <div id="questionContainer">
+        <h2 id="questionText" class="question-text">Loading question...</h2>
+        <div id="optionsContainer" class="options-grid"></div>
+      </div>
+    </section>
+
+    <!-- STEP 3: RESULTS & REFLECTION SUMMARY -->
+    <section id="result-screen" class="card hidden">
+      <div class="result-header">
+        <span class="badge" data-i18n="badgeResult">Resulta ng Pagsusuri</span>
+        <div class="score-circle">
+          <span id="scoreText">0%</span>
+          <small data-i18n="scoreLabel">Score</small>
+        </div>
+        <h2 id="resultLabel">Healthy</h2>
+        <p id="resultMsg" class="result-msg"></p>
+      </div>
+
+      <div class="result-box">
+        <h3 data-i18n="summaryHeader">📊 Analysis Breakdown</h3>
+        <p id="summaryText"></p>
+      </div>
+
+      <div class="result-box" id="userJournalSummary">
+        <h3 data-i18n="reflectionHeader">📝 Ang Iyong Saloobin at Komento</h3>
+        <div id="reflectionList" class="reflection-output"></div>
+      </div>
+
+      <div class="result-box">
+        <h3 data-i18n="solutionsHeader">🌱 7-Day Personal Improvement Plan</h3>
+        <ul id="solutionsList" class="solutions-list"></ul>
+      </div>
+
+      <div class="disclaimer" data-i18n="disclaimerText">
+        📌 Paalala: Ang tool na ito ay para sa self-reflection lamang at hindi kapalit ng propesyonal na payo o counseling.
+      </div>
+
+      <div class="actions-row">
+        <button id="retryBtn" class="btn btn-primary" data-i18n="btnRetry">Ulitin ang Quiz</button>
+        <button id="changeCatBtn" class="btn btn-secondary" data-i18n="btnChangeCat">Pumili ng ibang Kategorya</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
