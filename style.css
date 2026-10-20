@@ -32,9 +32,9 @@ body.dark-mode {
 
 /* Font Size Increase Option */
 body.large-font {
-  --base-font-size: 18px;
+  --base-font-size: 22px;
 }
-
+-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
